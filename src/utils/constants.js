@@ -1,0 +1,267 @@
+// App Configuration
+export const APP_CONFIG = {
+  name: 'InteriorDesign',
+  version: '1.0.0',
+  description: 'Professional Interior Design Services',
+  author: 'Interior Design Team',
+  email: 'info@interiordesign.com',
+  phone: '+1 (234) 567-8900',
+  address: {
+    street: '123 Design Street',
+    city: 'Creative City',
+    state: 'CC',
+    zip: '12345',
+    country: 'USA'
+  }
+};
+
+// Navigation Links
+export const NAV_LINKS = [
+  { name: 'Home', path: '/', exact: true },
+  { name: 'About', path: '/about' },
+  { name: 'Services', path: '/services' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Contact', path: '/contact' }
+];
+
+// Service Categories
+export const SERVICE_CATEGORIES = [
+  'Residential Design',
+  'Commercial Design',
+  'Office Design',
+  'Restaurant Design',
+  'Hotel Design',
+  'Retail Design',
+  'Space Planning',
+  '3D Visualization',
+  'Color Consultation',
+  'Lighting Design',
+  'Furniture Selection',
+  'Sustainable Design'
+];
+
+// Project Categories
+export const PROJECT_CATEGORIES = [
+  'All',
+  'Residential',
+  'Commercial',
+  'Office',
+  'Restaurant',
+  'Hotel',
+  'Retail'
+];
+
+// Services Data
+export const SERVICES_DATA = [
+  {
+    id: 1,
+    title: 'Residential Design',
+    description: 'Complete home interior design solutions tailored to your lifestyle and preferences.',
+    features: [
+      'Space planning and layout',
+      'Color scheme development',
+      'Furniture selection and placement',
+      '3D visualization and renderings',
+      'Project management and coordination'
+    ],
+    price: '2,500',
+    popular: true
+  },
+  {
+    id: 2,
+    title: 'Commercial Design',
+    description: 'Professional commercial spaces that enhance productivity and brand image.',
+    features: [
+      'Brand-aligned design concepts',
+      'Ergonomic workspace planning',
+      'Lighting and acoustics optimization',
+      'Material and finish selection',
+      'Code compliance assurance'
+    ],
+    price: '5,000'
+  },
+  {
+    id: 3,
+    title: 'Space Planning',
+    description: 'Optimize your space utilization with expert planning and layout design.',
+    features: [
+      'Traffic flow analysis',
+      'Functional zone planning',
+      'Storage optimization',
+      'Accessibility considerations',
+      'Future flexibility planning'
+    ],
+    price: '1,500'
+  },
+  {
+    id: 4,
+    title: '3D Visualization',
+    description: 'Bring your design ideas to life with photorealistic 3D renderings.',
+    features: [
+      'Photorealistic renderings',
+      'Virtual reality experiences',
+      'Multiple design options',
+      'Material and lighting simulation',
+      'Interactive walkthroughs'
+    ],
+    price: '800'
+  },
+  {
+    id: 5,
+    title: 'Color Consultation',
+    description: 'Expert color advice to create the perfect atmosphere for your space.',
+    features: [
+      'Color psychology application',
+      'Mood board creation',
+      'Paint and finish recommendations',
+      'Lighting impact analysis',
+      'Seasonal color variations'
+    ],
+    price: '400'
+  },
+  {
+    id: 6,
+    title: 'Lighting Design',
+    description: 'Comprehensive lighting solutions for ambiance, functionality, and efficiency.',
+    features: [
+      'Natural light optimization',
+      'Artificial lighting planning',
+      'Smart lighting integration',
+      'Energy efficiency solutions',
+      'Mood and task lighting'
+    ],
+    price: '1,200'
+  }
+];
+
+// Social Media Links
+export const SOCIAL_LINKS = [
+  {
+    name: 'Facebook',
+    url: 'https://facebook.com/interiordesign',
+    icon: 'Facebook'
+  },
+  {
+    name: 'Instagram',
+    url: 'https://instagram.com/interiordesign',
+    icon: 'Instagram'
+  },
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/interiordesign',
+    icon: 'Twitter'
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://linkedin.com/company/interiordesign',
+    icon: 'LinkedIn'
+  },
+  {
+    name: 'Pinterest',
+    url: 'https://pinterest.com/interiordesign',
+    icon: 'Pinterest'
+  }
+];
+
+// Animation Variants
+export const ANIMATION_VARIANTS = {
+  fadeIn: {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.6 }
+  },
+  slideUp: {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  },
+  slideDown: {
+    initial: { opacity: 0, y: -30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  },
+  scaleIn: {
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.5 }
+  },
+  staggerChildren: {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+};
+
+// Form Validation Rules
+export const VALIDATION_RULES = {
+  email: {
+    required: 'Email is required',
+    pattern: {
+      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      message: 'Invalid email address'
+    }
+  },
+  password: {
+    required: 'Password is required',
+    minLength: {
+      value: 8,
+      message: 'Password must be at least 8 characters'
+    }
+  },
+  name: {
+    required: 'Name is required',
+    minLength: {
+      value: 2,
+      message: 'Name must be at least 2 characters'
+    }
+  },
+  phone: {
+    required: 'Phone number is required',
+    pattern: {
+      value: /^[\+]?[1-9][\d]{0,15}$/,
+      message: 'Invalid phone number'
+    }
+  }
+};
+
+// Theme Colors
+export const THEME_COLORS = {
+  primary: {
+    50: '#f0f9ff',
+    100: '#e0f2fe',
+    200: '#bae6fd',
+    300: '#7dd3fc',
+    400: '#38bdf8',
+    500: '#0ea5e9',
+    600: '#0284c7',
+    700: '#0369a1',
+    800: '#075985',
+    900: '#0c4a6e',
+  },
+  secondary: {
+    50: '#fdf4ff',
+    100: '#fae8ff',
+    200: '#f5d0fe',
+    300: '#f0abfc',
+    400: '#e879f9',
+    500: '#d946ef',
+    600: '#c026d3',
+    700: '#a21caf',
+    800: '#86198f',
+    900: '#701a75',
+  }
+};
+
+export default {
+  APP_CONFIG,
+  NAV_LINKS,
+  SERVICE_CATEGORIES,
+  PROJECT_CATEGORIES,
+  SERVICES_DATA,
+  SOCIAL_LINKS,
+  ANIMATION_VARIANTS,
+  VALIDATION_RULES,
+  THEME_COLORS
+};
