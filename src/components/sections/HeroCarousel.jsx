@@ -299,15 +299,15 @@ const HeroCarousel = () => {
                 </motion.div>
               </motion.div>
             </AnimatePresence>
-
-            {/* UPDATED: Added 'hidden lg:block' to hide the form on smaller screens */}
+            
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.0, delay: 0.4 }}
               className="hidden lg:block order-1 lg:order-2"
             >
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl max-w-md mx-auto lg:max-w-none">
+              {/* UPDATED: Removed 'mx-auto' and 'lg:max-w-none' to keep a consistent max-width */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl max-w-md">
                 <div className="text-center mb-6">
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2">
                     Get Free Quote
