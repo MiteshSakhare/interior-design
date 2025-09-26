@@ -129,7 +129,7 @@ const ServiceCard = ({
                       ? 'text-primary-700 dark:text-primary-400 group-hover:text-primary-600 dark:group-hover:text-primary-300' 
                       : 'text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400'
                   }`}>
-                    ${price}
+                    ₹{price}
                   </span>
                   <span className="text-gray-500 dark:text-gray-400 text-sm">
                     /project

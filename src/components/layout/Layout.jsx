@@ -3,6 +3,8 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import WhatsAppFloat from '../ui/WhatsAppFloat';
+import ChatBot from '../ui/ChatBot';
 
 const Layout = () => {
   const location = useLocation();
@@ -38,6 +40,9 @@ const Layout = () => {
         <Outlet />
       </motion.main>
       <Footer />
+      {/* Add Floating Components Here */}
+      <WhatsAppFloat />
+      <ChatBot />
     </div>
   );
 };

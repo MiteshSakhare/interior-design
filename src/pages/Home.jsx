@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -6,7 +6,6 @@ import {
   PlayCircle, 
   CheckCircle,
   Star,
-  TrendingUp,
   Brush,
   Architecture,
   ColorLens,
@@ -28,7 +27,17 @@ const Home = () => {
   const [ctaRef, ctaInView] = useScrollReveal();
   const [showVideoModal, setShowVideoModal] = useState(false);
 
-  // Video Modal Handler
+  useEffect(() => {
+    if (showVideoModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showVideoModal]);
+
   const handleWatchVideo = () => {
     setShowVideoModal(true);
   };
@@ -37,7 +46,6 @@ const Home = () => {
     setShowVideoModal(false);
   };
 
-  // Portfolio Handler
   const handleViewPortfolio = () => {
     const projectsSection = document.getElementById('featured-projects');
     if (projectsSection) {
@@ -54,7 +62,7 @@ const Home = () => {
       title: "Interior Design",
       description: "Complete residential and commercial interior design solutions with modern aesthetics.",
       features: ["Space Planning", "3D Visualization", "Material Selection", "Project Management"],
-      price: "2,500",
+      price: "25,000",
       popular: true
     },
     {
@@ -62,14 +70,14 @@ const Home = () => {
       title: "Space Planning",
       description: "Optimize your space utilization with expert planning and functional layout design.",
       features: ["Traffic Flow Analysis", "Functional Zones", "Storage Solutions", "Accessibility"],
-      price: "1,500"
+      price: "15,000"
     },
     {
       icon: <ColorLens className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: "Color Consultation",
       description: "Professional color advice to create the perfect atmosphere for your space.",
       features: ["Color Psychology", "Mood Boards", "Paint Selection", "Lighting Impact"],
-      price: "400"
+      price: "4,000"
     }
   ];
 
@@ -80,7 +88,7 @@ const Home = () => {
       category: "Residential",
       location: "New York, NY",
       date: "2024",
-      description: "Luxury penthouse design featuring contemporary aesthetics and stunning city views.",
+      description: "Luxury penthouse design featuring contemporary aesthetics and stunning city views with premium materials and sophisticated lighting solutions. This project showcases modern minimalism with high-end finishes.",
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       likes: 245,
       views: 3200
@@ -91,7 +99,7 @@ const Home = () => {
       category: "Commercial",
       location: "Chicago, IL",
       date: "2024",
-      description: "Modern office space designed for productivity and employee satisfaction.",
+      description: "Modern office space designed for productivity and employee satisfaction with ergonomic furniture and natural lighting integration. Features collaborative spaces and private work areas.",
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       likes: 156,
       views: 1800
@@ -102,7 +110,7 @@ const Home = () => {
       category: "Restaurant",
       location: "San Francisco, CA",
       date: "2023",
-      description: "Intimate restaurant design with warm atmosphere and natural textures.",
+      description: "Intimate restaurant design with warm atmosphere and natural textures creating memorable dining experience for guests. Combines rustic charm with modern functionality.",
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       likes: 298,
       views: 4100
@@ -132,47 +140,50 @@ const Home = () => {
       {/* Hero Section */}
       <HeroCarousel />
 
-      {/* Video Modal */}
+      {/* Video Modal - Properly Centered */}
       <AnimatePresence>
         {showVideoModal && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[10000] flex items-center justify-center p-2 sm:p-4"
             onClick={handleCloseVideo}
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-4 sm:p-6 lg:p-8 max-w-xs sm:max-w-lg lg:max-w-2xl w-full relative"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-white dark:bg-gray-900 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={handleCloseVideo}
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 text-sm"
+                className="absolute top-3 right-3 z-10 w-8 h-8 bg-black/20 hover:bg-black/40 text-white rounded-full flex items-center justify-center transition-colors duration-200"
               >
                 ✕
               </button>
-              <div className="aspect-video bg-gray-200 dark:bg-gray-800 rounded-xl mb-4 flex items-center justify-center">
-                <div className="text-center px-4">
-                  <PlayCircle className="w-12 h-12 sm:w-16 sm:h-16 text-primary-500 mb-4 mx-auto" />
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Demo Video
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                    Experience our design process and see transformations in action
-                  </p>
+              
+              <div className="p-6 sm:p-8">
+                <div className="aspect-video bg-gray-200 dark:bg-gray-800 rounded-xl mb-4 flex items-center justify-center">
+                  <div className="text-center px-4">
+                    <PlayCircle className="w-16 h-16 sm:w-20 sm:h-20 text-primary-500 mb-4 mx-auto" />
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      Our Design Journey
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                      Experience our design process and see transformations in action
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex justify-center">
-                <button
-                  onClick={handleCloseVideo}
-                  className="px-4 py-2 sm:px-6 sm:py-2 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg hover:from-primary-700 hover:to-secondary-700 transition-all duration-200 text-sm sm:text-base"
-                >
-                  Close Preview
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    onClick={handleCloseVideo}
+                    className="px-6 py-2 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg hover:from-primary-700 hover:to-secondary-700 transition-all duration-200"
+                  >
+                    Close Preview
+                  </button>
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -441,11 +452,20 @@ const Home = () => {
             </p>
           </motion.div>
 
+          {/* Project Cards with Working Modal Integration */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredProjects.map((project, index) => (
               <div key={project.id} className="h-full">
                 <ProjectCard
-                  {...project}
+                  id={project.id}
+                  image={project.image}
+                  title={project.title}
+                  category={project.category}
+                  location={project.location}
+                  date={project.date}
+                  description={project.description}
+                  likes={project.likes}
+                  views={project.views}
                   delay={index * 0.1}
                 />
               </div>

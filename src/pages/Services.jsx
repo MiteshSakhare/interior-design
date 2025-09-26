@@ -156,7 +156,7 @@ const Services = () => {
                         ? 'text-primary-700 dark:text-primary-400 group-hover:text-primary-600 dark:group-hover:text-primary-300' 
                         : 'text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400'
                     }`}>
-                      ${price}
+                      ₹{price}
                     </span>
                     <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
                       /project
@@ -197,7 +197,7 @@ const Services = () => {
         "3D visualization and renderings",
         "Project management and coordination"
       ],
-      price: "2,500",
+      price: "20,000",
       popular: true
     },
     {
@@ -211,7 +211,7 @@ const Services = () => {
         "Material and finish selection",
         "Code compliance assurance"
       ],
-      price: "5,000"
+      price: "50,000"
     },
     {
       icon: <Architecture className="w-full h-full" />,
@@ -224,7 +224,7 @@ const Services = () => {
         "Accessibility considerations",
         "Future flexibility planning"
       ],
-      price: "1,500"
+      price: "15,000"
     },
     {
       icon: <ViewInAr className="w-full h-full" />,
@@ -237,7 +237,7 @@ const Services = () => {
         "Material and lighting simulation",
         "Interactive design walkthroughs"
       ],
-      price: "800"
+      price: "8,000"
     },
     {
       icon: <ColorLens className="w-full h-full" />,
@@ -250,7 +250,7 @@ const Services = () => {
         "Lighting impact analysis",
         "Seasonal color variations"
       ],
-      price: "400"
+      price: "4,000"
     },
     {
       icon: <Lightbulb className="w-full h-full" />,
@@ -263,7 +263,7 @@ const Services = () => {
         "Energy efficiency solutions",
         "Mood and task lighting balance"
       ],
-      price: "1,200"
+      price: "12,000"
     },
     {
       icon: <Kitchen className="w-full h-full" />,
@@ -276,7 +276,7 @@ const Services = () => {
         "Countertop material selection",
         "Ventilation and lighting"
       ],
-      price: "3,000"
+      price: "30,000"
     },
     {
       icon: <Weekend className="w-full h-full" />,
@@ -289,7 +289,7 @@ const Services = () => {
         "Water efficiency solutions",
         "Accessibility features"
       ],
-      price: "2,200"
+      price: "22,000"
     },
     {
       icon: <Store className="w-full h-full" />,
@@ -302,7 +302,7 @@ const Services = () => {
         "Lighting and visual merchandising",
         "Point-of-sale area design"
       ],
-      price: "4,500"
+      price: "45,000"
     }
   ];
 
