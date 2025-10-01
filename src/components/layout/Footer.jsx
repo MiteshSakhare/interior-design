@@ -1,17 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  LocationOn, 
-  Email, 
-  Phone, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import {
+  LocationOn,
+  Email,
+  Phone,
+  Facebook,
+  Twitter,
+  Instagram,
   LinkedIn,
   ArrowForward
 } from '@mui/icons-material';
+// --- THIS IS THE CORRECTED LINE ---
+import { useTheme } from '../../context/ThemeContext';
 
 const Footer = () => {
+  const { darkMode } = useTheme();
   const currentYear = new Date().getFullYear();
 
   const containerVariants = {
@@ -27,8 +30,8 @@ const Footer = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.5 }
     }
@@ -60,22 +63,26 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <LocationOn className="w-5 h-5" />,
-      text: 'FC Road, Pune Central, Maharashtra 411005'
+      text: 'Warehouse no 8, Burudgaon rd, Near Bhoslay Lawns, Ahmednagar 414001'
     },
     {
       icon: <Email className="w-5 h-5" />,
-      text: 'info@interiordesign.com'
+      text: 'apdesignandconstructionl@gmail.com'
     },
     {
       icon: <Phone className="w-5 h-5" />,
-      text: '+91 20 2567 8900'
+      text: '+91 8087999989'
+    },
+    {
+      icon: <Phone className="w-5 h-5" />,
+      text: '+91 9175899989'
     }
   ];
 
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Main Footer Content */}
         <motion.div
           variants={containerVariants}
@@ -85,26 +92,26 @@ const Footer = () => {
           className="py-12 lg:py-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            
-            {/* Company Info - Full width on mobile, spans 2 cols on md+ */}
-            <motion.div 
+
+            {/* Company Info */}
+            <motion.div
               variants={itemVariants}
               className="md:col-span-2 lg:col-span-1"
             >
               <div className="mb-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">ID</span>
+                    <img src={darkMode ? '/logo-dark.png' : '/logo-light.png'} alt="Interior Hub Logo" className="object-contain p-1" />
                   </div>
-                  <span className="text-xl font-bold">InteriorDesign</span>
+                  <span className="text-xl font-bold">Interior Hub</span>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Transforming spaces into beautiful, functional environments. 
+                  Transforming spaces into beautiful, functional environments.
                   Over 15 years of excellence in interior design.
                 </p>
               </div>
 
-              {/* Newsletter Signup - Mobile Optimized */}
+              {/* Newsletter Signup */}
               <div className="mb-6">
                 <h3 className="text-lg font-semibold mb-3">Stay Updated</h3>
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -191,7 +198,7 @@ const Footer = () => {
                 ))}
               </div>
 
-              {/* Business Hours - Mobile Friendly */}
+              {/* Business Hours */}
               <div className="mt-6 p-4 bg-gray-800 rounded-lg">
                 <h4 className="text-sm font-semibold text-primary-400 mb-2">Business Hours</h4>
                 <div className="text-sm text-gray-300 space-y-1">
@@ -213,13 +220,13 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Bottom Footer - Responsive */}
+        {/* Bottom Footer */}
         <motion.div
           variants={itemVariants}
           className="border-t border-gray-800 pt-8 pb-4"
         >
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            
+
             {/* Copyright */}
             <div className="text-center sm:text-left">
               <p className="text-gray-400 text-sm">
@@ -227,7 +234,7 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Legal Links - Stack on mobile */}
+            {/* Legal Links */}
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors duration-200">
                 Privacy Policy
@@ -240,7 +247,7 @@ const Footer = () => {
               </a>
             </div>
 
-            {/* Back to Top - Mobile Friendly */}
+            {/* Back to Top */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center space-x-2 text-gray-400 hover:text-primary-400 transition-colors duration-200 text-sm group"
