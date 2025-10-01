@@ -1,0 +1,21 @@
+{
+  "name": "Interior Design Studio",
+  "short_name": "InteriorDesign",
+  "description": "Professional Interior Design Services",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0ea5e9",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
