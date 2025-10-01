@@ -100,8 +100,8 @@ const Footer = () => {
             >
               <div className="mb-6">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10  from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center">
-                    <img src={darkMode ? '/light-logo.png' : '/light-logo.png'} alt="Interior Hub Logo" className="object-contain p-1" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center">
+                    <img src={darkMode ? '/dark-logo.png' : '/light-logo.png'} alt="Interior Hub Logo" className="object-contain p-1" />
                   </div>
                   <span className="text-xl font-bold">Interior Hub</span>
                 </div>
