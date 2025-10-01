@@ -2,16 +2,18 @@
 
 A modern, responsive interior design website built with **React**, **Vite**, **Tailwind CSS**, and **Framer Motion**. This professional-grade application showcases interior design services with stunning animations, dark/light mode, and a comprehensive project portfolio.
 
+---
+
 ## ✨ Features
 
-### 🎨 **Design & UI**
+### 🎨 Design & UI
 - **Modern Glassmorphism Design** with gradient backgrounds
 - **Dark/Light Mode Toggle** with smooth transitions
 - **Fully Responsive** design for all devices
 - **Professional Animations** using Framer Motion
 - **Clean Typography** with Google Fonts (Inter & Poppins)
 
-### 🚀 **Core Functionality**
+### 🚀 Core Functionality
 - **Hero Carousel** with auto-slide and navigation controls
 - **Project Gallery** with filtering and grid/list views
 - **Service Showcase** with interactive cards and pricing
@@ -19,7 +21,7 @@ A modern, responsive interior design website built with **React**, **Vite**, **T
 - **Contact Forms** with validation and error handling
 - **Authentication Pages** (Login/Register) with social login UI
 
-### 📱 **Technical Features**
+### 📱 Technical Features
 - **React Router** for seamless navigation
 - **Framer Motion** for professional animations
 - **React Hook Form** for form validation
@@ -27,13 +29,15 @@ A modern, responsive interior design website built with **React**, **Vite**, **T
 - **Intersection Observer** for scroll-triggered animations
 - **Theme Context** for global state management
 
-### 🛡️ **Quality & Performance**
+### 🛡️ Quality & Performance
 - **TypeScript Ready** configuration
 - **ESLint** for code quality
-- **Optimized Images** with proper lazy loading
+- **Optimized Images** with lazy loading
 - **SEO Optimized** with proper meta tags
 - **Accessibility Compliant** with ARIA labels
 - **Cross-browser Compatible**
+
+---
 
 ## 🚀 Quick Start
 
@@ -43,29 +47,27 @@ A modern, responsive interior design website built with **React**, **Vite**, **T
 
 ### Installation
 
-Clone the repository
+```bash
+# Clone the repository
 git clone <your-repo-url>
 cd interior-design-app
 
-Install dependencies
+# Install dependencies
 npm install
 
-Start development server
+# Start development server
 npm run dev
+```
 
-text
-
-The application will be available at `http://localhost:3000`
-
-### Build for Production
-
-Create production build
+## Build for Production
+``` bash
+# Create production build
 npm run build
 
-Preview production build
+# Preview production build
 npm run preview
+```
 
-text
 
 ## 📁 Project Structure
 
@@ -134,47 +136,6 @@ All components are built with:
 | **React Hook Form** | Form handling | 7.48+ |
 | **Material-UI Icons** | Icon library | 5.14+ |
 
-## 📱 Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-Install Vercel CLI
-npm i -g vercel
-
-Deploy
-vercel --prod
-
-text
-
-### Netlify
-Build the project
-npm run build
-
-Deploy dist folder to Netlify
-text
-
-### Manual Deployment
-Create production build
-npm run build
-
-Upload dist/ folder to your hosting service
-text
-
-## 🔧 Environment Variables
-
-Create a `.env` file in the root directory:
-
-VITE_APP_NAME="Interior Design Studio"
-VITE_API_URL="https://your-api-url.com"
-VITE_CONTACT_EMAIL="info@interiordesign.com"
-
-text
 
 ## 📈 Performance Optimizations
 
