@@ -4,6 +4,9 @@ A modern, responsive interior design website built with **React**, **Vite**, **T
 
 ---
 
+## Website Lookup
+![Alt Screenshot](./output%20image/image.png)
+
 ## ✨ Features
 
 ### 🎨 Design & UI
