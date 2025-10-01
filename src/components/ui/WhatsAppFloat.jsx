@@ -5,8 +5,8 @@ const WhatsAppFloat = () => {
   const [isVisible] = useState(true); // Always visible now
   
   const handleWhatsAppClick = () => {
-    const phoneNumber = '+919876543210'; // Replace with your WhatsApp number
-    const message = 'Hi! I am interested in interior design services. Can you help me?';
+    const phoneNumber = '+919175899989'; // Replace with your WhatsApp number
+    const message = 'Hi! I am interested in *Interior Hub* services. Can you help me?';
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
   };

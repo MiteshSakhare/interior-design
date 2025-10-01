@@ -1,18 +1,29 @@
 // App Configuration
 export const APP_CONFIG = {
-  name: 'InteriorDesign',
+  name: 'AP Interior Hub',
   version: '1.0.0',
-  description: 'Professional Interior Design Services',
-  author: 'Interior Design Team',
-  email: 'info@interiordesign.com',
-  phone: '+1 (234) 567-8900',
+  description: 'AP Interior Hub - Design & Construction, Consulting, Interior Material Supplier, Wholesale & Retail',
+  author: 'ER. AKSHAY PIMPALE',
+  email: 'apdesignandconstruction1@gmail.com',
+  phone: '+919175899989',
   address: {
-    street: '123 Design Street',
-    city: 'Creative City',
-    state: 'CC',
-    zip: '12345',
-    country: 'USA'
+    street: 'Warehouse no 8, Burudgaon rd, Near Bhoslay Lawns',
+    city: 'Ahmednagar',
+    state: 'Maharashtra',
+    zip: '414001',
+    country: 'India'
   }
+};
+
+// NEW: Centralized Company Contact Information from the business card
+export const COMPANY_CONTACT_INFO = {
+  owner: "ER. AKSHAY PIMPALE",
+  phoneNumbers: ["8087999989", "9175899989"],
+  email: "apdesignandconstruction1@gmail.com",
+  instagram: "ap_design_construction",
+  address: "Warehouse no 8, Burudgaon rd, Near Bhoslay Lawns, Ahmednagar 414001",
+  googleMapsLink: "https://maps.google.com/?q=Burudgaon+rd,+Near+Bhoslay+Lawns,+Ahmednagar+414001", // Example link - replace with actual
+  whatsappNumber: "918087999989", // Format with country code for wa.me links
 };
 
 // Navigation Links
@@ -64,7 +75,7 @@ export const SERVICES_DATA = [
       '3D visualization and renderings',
       'Project management and coordination'
     ],
-    price: '2,500',
+    price: '20,000',
     popular: true
   },
   {
@@ -78,7 +89,7 @@ export const SERVICES_DATA = [
       'Material and finish selection',
       'Code compliance assurance'
     ],
-    price: '5,000'
+    price: '50,000'
   },
   {
     id: 3,
@@ -91,7 +102,7 @@ export const SERVICES_DATA = [
       'Accessibility considerations',
       'Future flexibility planning'
     ],
-    price: '1,500'
+    price: '15,000'
   },
   {
     id: 4,
@@ -104,7 +115,7 @@ export const SERVICES_DATA = [
       'Material and lighting simulation',
       'Interactive walkthroughs'
     ],
-    price: '800'
+    price: '8,000'
   },
   {
     id: 5,
@@ -117,7 +128,7 @@ export const SERVICES_DATA = [
       'Lighting impact analysis',
       'Seasonal color variations'
     ],
-    price: '400'
+    price: '4,000'
   },
   {
     id: 6,
@@ -130,7 +141,7 @@ export const SERVICES_DATA = [
       'Energy efficiency solutions',
       'Mood and task lighting'
     ],
-    price: '1,200'
+    price: '12,000'
   }
 ];
 
@@ -143,7 +154,7 @@ export const SOCIAL_LINKS = [
   },
   {
     name: 'Instagram',
-    url: 'https://instagram.com/interiordesign',
+    url: `https://instagram.com/${COMPANY_CONTACT_INFO.instagram}`,
     icon: 'Instagram'
   },
   {
@@ -256,6 +267,7 @@ export const THEME_COLORS = {
 
 export default {
   APP_CONFIG,
+  COMPANY_CONTACT_INFO,
   NAV_LINKS,
   SERVICE_CATEGORIES,
   PROJECT_CATEGORIES,

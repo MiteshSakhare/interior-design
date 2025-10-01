@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatsAppFloat from '../ui/WhatsAppFloat';
@@ -9,7 +9,6 @@ import ChatBot from '../ui/ChatBot';
 const Layout = () => {
   const location = useLocation();
 
-  // Auto-scroll to top on route change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
@@ -27,20 +26,23 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark-50 transition-colors duration-300">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-dark-50 transition-colors duration-300">
       <Navbar />
-      <motion.main
-        initial="initial"
-        animate="in"
-        exit="out"
-        variants={pageVariants}
-        transition={pageTransition}
-        className="pt-16 lg:pt-20"
-      >
-        <Outlet />
-      </motion.main>
+      <main className="flex-grow pt-16 lg:pt-20">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
+      </main>
       <Footer />
-      {/* Add Floating Components Here */}
       <WhatsAppFloat />
       <ChatBot />
     </div>

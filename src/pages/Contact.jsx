@@ -45,23 +45,24 @@ const Contact = () => {
     }, 3000);
   };
 
+  // UPDATED CONTENT INSIDE THIS ARRAY
   const contactInfo = [
     {
       icon: <LocationOn className="w-5 h-5 sm:w-6 sm:h-6" />,
-      title: "Visit Our Studio",
-      details: ["FC Road, Pune Central", "Pune, Maharashtra 411005"],
+      title: "Visit Our Warehouse",
+      details: ["Warehouse no 8, Burudgaon rd,", "Near Bhoslay Lawns, Ahmednagar 414001"],
       color: "from-blue-500 to-blue-600"
     },
     {
       icon: <Phone className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Call Us",
-      details: ["+91 20 2567 8900", "+91 98765 43210"],
+      details: ["+91 8087999989", "+91 9175899989"],
       color: "from-green-500 to-green-600"
     },
     {
       icon: <Email className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Email Us",
-      details: ["info@interiordesign.com", "projects@interiordesign.com"],
+      details: ["apdesignandconstruction1@gmail.com"],
       color: "from-purple-500 to-purple-600"
     },
     {
@@ -245,8 +246,9 @@ const Contact = () => {
                       <LocationOn className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 dark:text-white">Pune</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-300">FC Road</div>
+                      {/* UPDATED */}
+                      <div className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 dark:text-white">Ahmednagar</div>
+                      <div className="text-xs text-gray-600 dark:text-gray-300">Maharashtra</div>
                     </div>
                   </div>
                 </motion.div>
@@ -325,7 +327,7 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Responsive Map */}
+              {/* Responsive Map - UPDATED WITH REAL (PLACEHOLDER) LINK */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -334,14 +336,14 @@ const Contact = () => {
                 className="h-60 sm:h-80 bg-gray-200 dark:bg-gray-800 rounded-lg sm:rounded-2xl overflow-hidden shadow-lg group"
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.0267933150515!2d73.8333!3d18.5074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sFC%20Road%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1695123456789!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.6764666835243!2d74.73239077713028!3d19.077957305851104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdcb05771b82a75%3A0x6ad20d9714c990dc!2sBadve%20nivas%2C%2048%2F8%2C%20Burudgaon%20Rd%2C%20nera%20ITI%20college%2C%20Bhavani%20Nagar%2C%20Ahilyanagar%2C%20Maharashtra%20414001!5e0!3m2!1sen!2sin!4v1759300039413!5m2!1sen!2sin" // Replace this with the actual embed link from Google Maps
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Our Office Location - FC Road, Pune"
+                  title="Our Office Location - Ahmednagar"
                   className="filter grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
               </motion.div>
@@ -432,8 +434,8 @@ const Contact = () => {
                   validation={{
                     required: 'Phone number is required',
                     pattern: {
-                      value: /^[\+]?[1-9][\d]{0,15}$/,
-                      message: 'Invalid phone number'
+                      value: /^[6-9]\d{9}$/, // Indian mobile number pattern
+                      message: 'Invalid Indian phone number'
                     }
                   }}
                 />
