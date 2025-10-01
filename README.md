@@ -71,6 +71,7 @@ npm run preview
 
 ## 📁 Project Structure
 
+``` bash
 interior-design-app/
 ├── public/
 │ ├── index.html
@@ -92,8 +93,7 @@ interior-design-app/
 ├── vite.config.js
 ├── tailwind.config.js
 └── README.md
-
-text
+```
 
 ## 🎯 Pages & Routes
 
