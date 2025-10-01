@@ -146,8 +146,9 @@ const Navbar = () => {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  src="/logo.png"
-                  alt="Interior Design Studio"
+                  // --- MODIFIED LINE ---
+                  src={darkMode ? '/light-logo.png' : '/dark-logo.png'} 
+                  alt="Interior Hub Logo"
                   className="w-10 h-10 lg:w-12 lg:h-12 object-contain"
                   onError={(e) => {
                     e.target.style.display = 'none';
@@ -155,10 +156,10 @@ const Navbar = () => {
                   }}
                 />
                 <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center" style={{ display: 'none' }}>
-                  <span className="text-white font-bold text-lg lg:text-xl">ID</span>
+                  <span className="text-white font-bold text-lg lg:text-xl">IH</span>
                 </div>
                 <span className="text-lg lg:text-xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent group-hover:from-primary-700 group-hover:to-secondary-700 transition-all duration-200">
-                  InteriorDesign
+                  Interior Hub
                 </span>
               </Link>
             </motion.div>
