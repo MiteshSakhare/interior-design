@@ -118,9 +118,11 @@ const About = () => {
   ];
 
   return (
-    <div className="overflow-hidden">
+    // background image added here --------------||
+    // --- MODIFIED LINE ---
+    <div className="overflow-hidden bg-[url('/about.png')] bg-cover bg-center bg-fixed">
       {/* Responsive Hero Section */}
-      <section ref={heroRef} className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-primary-50/20 dark:from-gray-900 dark:via-gray-800 dark:to-primary-900/10 relative overflow-hidden">
+      <section ref={heroRef} className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50/80 via-white/80 to-primary-50/20 backdrop-blur-sm dark:from-gray-900/80 dark:via-gray-800/80 dark:to-primary-900/10 relative overflow-hidden">
         {/* Background Decorations - Hidden on small screens */}
         <div className="absolute inset-0 overflow-hidden hidden lg:block">
           <div className="absolute w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-br from-primary-200/30 to-secondary-200/20 rounded-full top-10 right-10 animate-pulse"></div>
@@ -268,7 +270,7 @@ const About = () => {
       </section>
 
       {/* Responsive Our Story */}
-      <section ref={storyRef} className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-800">
+      <section ref={storyRef} className="py-12 sm:py-16 lg:py-20 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             
@@ -301,7 +303,7 @@ const About = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={storyInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                    className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-50 dark:bg-gray-800 rounded-lg sm:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
+                    className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg sm:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
                   >
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                       <CheckCircle className="w-3 h-3 sm:w-5 sm:h-5 text-white" />
@@ -354,7 +356,7 @@ const About = () => {
       <StatsCounter />
 
       {/* Responsive Our Values */}
-      <section ref={valuesRef} className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <section ref={valuesRef} className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50/80 to-gray-100/80 dark:from-gray-900/80 dark:to-gray-800/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -380,7 +382,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
                 className="h-full"
               >
-                <div className="bg-white dark:bg-gray-900 rounded-lg sm:rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group h-full flex flex-col">
+                <div className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-lg sm:rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group h-full flex flex-col">
                   <motion.div 
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${value.color} rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 text-white shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
@@ -401,7 +403,7 @@ const About = () => {
       </section>
 
       {/* Responsive Timeline */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-800">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -439,7 +441,7 @@ const About = () => {
                   <div className="lg:w-5/12 w-full mb-6 lg:mb-0">
                     <motion.div
                       whileHover={{ scale: 1.02, y: -5 }}
-                      className="bg-white dark:bg-gray-900 rounded-lg sm:rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+                      className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg sm:rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 group"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center mb-4 space-y-2 sm:space-y-0 sm:space-x-4">
                         <div className="text-2xl sm:text-3xl font-bold text-primary-600 dark:text-primary-400">
@@ -478,7 +480,7 @@ const About = () => {
       </section>
 
       {/* Responsive Team Section */}
-      <section ref={teamRef} className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <section ref={teamRef} className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50/80 to-gray-100/80 dark:from-gray-900/80 dark:to-gray-800/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -504,7 +506,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
                 className="h-full"
               >
-                <div className="bg-white dark:bg-gray-900 rounded-lg sm:rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group h-full flex flex-col">
+                <div className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-lg sm:rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group h-full flex flex-col">
                   <div className="relative overflow-hidden">
                     <motion.img
                       whileHover={{ scale: 1.05 }}
