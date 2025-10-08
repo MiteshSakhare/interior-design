@@ -14,6 +14,89 @@ import {
   ArrowForward
 } from '@mui/icons-material';
 
+const Icon = () => {
+  // This component renders your logo.
+  // For the image path to work, please ensure "dark-logo.png" is in your project's "public" folder.
+  return (
+    <img 
+      src="/dark-logo.png" 
+      alt="Logo" 
+      className="w-full h-full object-cover rounded-full" 
+    />
+  );
+};
+
+export {Icon};
+
+
+// --- SOLUTION ---
+// I've moved the InputField component definition outside of the AuthForms component.
+// This is a structural change in the code that does NOT affect the layout or CSS.
+// It ensures that the InputField is a stable component that doesn't get re-created on every keystroke,
+// which is what was causing the input to lose focus.
+// I've also passed `register` and `errors` as props, since they are needed from the parent.
+const InputField = React.memo(({ 
+  label, 
+  name, 
+  type = 'text', 
+  icon, 
+  validation, 
+  placeholder,
+  showPasswordToggle = false,
+  showPassword = false,
+  onTogglePassword,
+  register,
+  errors
+}) => (
+  <motion.div
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.3 }}
+    className="relative"
+  >
+    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      {label}
+    </label>
+    <div className="relative">
+      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <span className="text-gray-400">
+          {icon}
+        </span>
+      </div>
+      <input
+        {...register(name, validation)}
+        type={showPasswordToggle ? (showPassword ? 'text' : 'password') : type}
+        placeholder={placeholder}
+        className="input-modern pl-10 pr-12" // All your original CSS classes are preserved.
+        autoComplete={type === 'password' ? 'current-password' : 'off'}
+      />
+      {showPasswordToggle && (
+        <button
+          type="button"
+          onClick={onTogglePassword}
+          className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none transition-colors duration-200"
+          tabIndex={-1}
+        >
+          {showPassword ? <VisibilityOff className="w-5 h-5" /> : <Visibility className="w-5 h-5" />}
+        </button>
+      )}
+    </div>
+    <AnimatePresence>
+      {errors[name] && (
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="mt-1 text-sm text-red-600 dark:text-red-400"
+        >
+          {errors[name].message}
+        </motion.p>
+      )}
+    </AnimatePresence>
+  </motion.div>
+));
+
+
 const AuthForms = ({ type = 'login' }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -27,7 +110,7 @@ const AuthForms = ({ type = 'login' }) => {
     watch,
     reset
   } = useForm({
-    mode: 'onChange', // This helps prevent re-renders on every keystroke
+    mode: 'onChange',
     defaultValues: {
       fullName: '',
       email: '',
@@ -40,7 +123,6 @@ const AuthForms = ({ type = 'login' }) => {
 
   const password = watch('password');
 
-  // Memoized toggle functions to prevent re-renders
   const togglePasswordVisibility = useCallback(() => {
     setShowPassword(prev => !prev);
   }, []);
@@ -87,66 +169,6 @@ const AuthForms = ({ type = 'login' }) => {
     }
   ];
 
-  // Memoized InputField component to prevent unnecessary re-renders
-  const InputField = React.memo(({ 
-    label, 
-    name, 
-    type = 'text', 
-    icon, 
-    validation, 
-    placeholder,
-    showPasswordToggle = false,
-    showPassword = false,
-    onTogglePassword
-  }) => (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.3 }}
-      className="relative"
-    >
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-        {label}
-      </label>
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <span className="text-gray-400">
-            {icon}
-          </span>
-        </div>
-        <input
-          {...register(name, validation)}
-          type={showPasswordToggle ? (showPassword ? 'text' : 'password') : type}
-          placeholder={placeholder}
-          className="input-modern pl-10 pr-12"
-          autoComplete={type === 'password' ? 'current-password' : 'off'}
-        />
-        {showPasswordToggle && (
-          <button
-            type="button"
-            onClick={onTogglePassword}
-            className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none transition-colors duration-200"
-            tabIndex={-1}
-          >
-            {showPassword ? <VisibilityOff className="w-5 h-5" /> : <Visibility className="w-5 h-5" />}
-          </button>
-        )}
-      </div>
-      <AnimatePresence>
-        {errors[name] && (
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="mt-1 text-sm text-red-600 dark:text-red-400"
-          >
-            {errors[name].message}
-          </motion.p>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  ));
-
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 hero-enhanced">
       {/* Background Decorations */}
@@ -169,9 +191,9 @@ const AuthForms = ({ type = 'login' }) => {
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="mx-auto w-20 h-20 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl flex items-center justify-center mb-6 shadow-modern"
+            className="mx-auto w-20 h-20 from-primary-500 to-secondary-500 rounded-3xl flex items-center justify-center mb-6 shadow-modern"
           >
-            <span className="text-white font-bold text-3xl">ID</span>
+            <span className="text-white font-bold text-3xl"><Icon/></span>
           </motion.div>
           
           <h2 className="h2 text-gray-900 dark:text-white mb-2">
@@ -252,6 +274,8 @@ const AuthForms = ({ type = 'login' }) => {
                 name="fullName"
                 icon={<Person className="w-5 h-5" />}
                 placeholder="Enter your full name"
+                register={register}
+                errors={errors}
                 validation={{
                   required: 'Full name is required',
                   minLength: {
@@ -269,6 +293,8 @@ const AuthForms = ({ type = 'login' }) => {
               type="email"
               icon={<Email className="w-5 h-5" />}
               placeholder="Enter your email"
+              register={register}
+              errors={errors}
               validation={{
                 required: 'Email is required',
                 pattern: {
@@ -287,6 +313,8 @@ const AuthForms = ({ type = 'login' }) => {
               showPasswordToggle
               showPassword={showPassword}
               onTogglePassword={togglePasswordVisibility}
+              register={register}
+              errors={errors}
               validation={{
                 required: 'Password is required',
                 minLength: {
@@ -312,6 +340,8 @@ const AuthForms = ({ type = 'login' }) => {
                 showPasswordToggle
                 showPassword={showConfirmPassword}
                 onTogglePassword={toggleConfirmPasswordVisibility}
+                register={register}
+                errors={errors}
                 validation={{
                   required: 'Please confirm your password',
                   validate: value => 
@@ -442,3 +472,4 @@ const AuthForms = ({ type = 'login' }) => {
 };
 
 export default AuthForms;
+

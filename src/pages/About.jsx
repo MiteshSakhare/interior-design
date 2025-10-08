@@ -120,7 +120,7 @@ const About = () => {
   return (
     // background image added here --------------||
     // --- MODIFIED LINE ---
-    <div className="overflow-hidden bg-[url('/about.png')] bg-cover bg-center bg-fixed">
+    <div className="overflow-hidden bg-cover bg-center bg-fixed">
       {/* Responsive Hero Section */}
       <section ref={heroRef} className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50/80 via-white/80 to-primary-50/20 backdrop-blur-sm dark:from-gray-900/80 dark:via-gray-800/80 dark:to-primary-900/10 relative overflow-hidden">
         {/* Background Decorations - Hidden on small screens */}

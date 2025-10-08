@@ -12,7 +12,8 @@ import {
   Info,
   Work,
   Folder,
-  ContactMail
+  ContactMail,
+  Calculate // <-- IMPORTED ICON
 } from '@mui/icons-material';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -21,11 +22,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { darkMode, toggleDarkMode } = useTheme();
   const location = useLocation();
-
-  // Debug log to check theme state
-  useEffect(() => {
-    console.log('Theme state:', { darkMode });
-  }, [darkMode]);
 
   // Handle scroll effect
   useEffect(() => {
@@ -58,6 +54,7 @@ const Navbar = () => {
     { name: 'About', href: '/about', icon: <Info className="w-5 h-5" /> },
     { name: 'Services', href: '/services', icon: <Work className="w-5 h-5" /> },
     { name: 'Projects', href: '/projects', icon: <Folder className="w-5 h-5" /> },
+    { name: 'Calculator', href: '/calculator', icon: <Calculate className="w-5 h-5" /> }, // <-- NEW LINK ADDED
     { name: 'Contact', href: '/contact', icon: <ContactMail className="w-5 h-5" /> }
   ];
 
@@ -68,9 +65,7 @@ const Navbar = () => {
     return location.pathname.startsWith(href);
   };
 
-  // Enhanced theme toggle handler with feedback
   const handleThemeToggle = () => {
-    console.log('Theme toggle clicked, current mode:', darkMode);
     toggleDarkMode();
   };
 
@@ -146,7 +141,6 @@ const Navbar = () => {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  // --- MODIFIED LINE ---
                   src={darkMode ? '/light-logo.png' : '/dark-logo.png'} 
                   alt="Interior Hub Logo"
                   className="w-10 h-10 lg:w-12 lg:h-12 object-contain"
@@ -155,7 +149,7 @@ const Navbar = () => {
                     e.target.nextSibling.style.display = 'flex';
                   }}
                 />
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center" style={{ display: 'none' }}>
+                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl items-center justify-center" style={{ display: 'none' }}>
                   <span className="text-white font-bold text-lg lg:text-xl">IH</span>
                 </div>
                 <span className="text-lg lg:text-xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent group-hover:from-primary-700 group-hover:to-secondary-700 transition-all duration-200">
@@ -171,7 +165,7 @@ const Navbar = () => {
               animate="visible"
               className="hidden lg:flex items-center space-x-1"
             >
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <motion.div key={link.name} variants={itemVariants}>
                   <Link
                     to={link.href}
@@ -202,8 +196,6 @@ const Navbar = () => {
               animate="visible"
               className="hidden lg:flex items-center space-x-4"
             >
-              
-              {/* Desktop Theme Toggle */}
               <motion.button
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
@@ -220,7 +212,6 @@ const Navbar = () => {
                 {darkMode ? <LightMode className="w-5 h-5" /> : <DarkMode className="w-5 h-5" />}
               </motion.button>
 
-              {/* Auth Buttons */}
               <motion.div variants={itemVariants}>
                 <Link
                   to="/login"
@@ -243,8 +234,6 @@ const Navbar = () => {
 
             {/* Mobile Actions */}
             <div className="flex items-center space-x-2 lg:hidden">
-              
-              {/* Mobile Theme Toggle - Enhanced */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -267,7 +256,6 @@ const Navbar = () => {
                 </motion.div>
               </motion.button>
 
-              {/* Mobile Menu Button */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -291,7 +279,6 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -300,7 +287,6 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
-            {/* Mobile Menu */}
             <motion.div
               variants={mobileMenuVariants}
               initial="closed"
@@ -310,18 +296,16 @@ const Navbar = () => {
             >
               <div className="p-6">
                 
-                {/* Mobile Menu Header */}
                 <div className="flex items-center justify-between mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">ID</span>
+                      <span className="text-white font-bold text-lg">IH</span>
                     </div>
                     <span className="text-lg font-bold text-gray-900 dark:text-white">
-                      InteriorDesign
+                      Interior Hub
                     </span>
                   </div>
                   
-                  {/* Close button with theme toggle */}
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={handleThemeToggle}
@@ -343,7 +327,6 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                {/* Mobile Navigation Links */}
                 <nav className="mb-8">
                   <ul className="space-y-2">
                     {navLinks.map((link, index) => (
@@ -376,7 +359,6 @@ const Navbar = () => {
                   </ul>
                 </nav>
 
-                {/* Mobile Auth Buttons */}
                 <div className="space-y-4 pt-6 border-t border-gray-200 dark:border-gray-700">
                   <motion.div
                     custom={navLinks.length}
@@ -410,28 +392,6 @@ const Navbar = () => {
                     </Link>
                   </motion.div>
                 </div>
-
-                {/* Theme Status Indicator (Debug) */}
-                <motion.div
-                  custom={navLinks.length + 2}
-                  variants={mobileItemVariants}
-                  initial="closed"
-                  animate="open"
-                  className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700"
-                >
-                  <div className="text-center">
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      Current theme: <span className="font-semibold">{darkMode ? 'Dark' : 'Light'}</span>
-                    </p>
-                    <Link
-                      to="/contact"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-primary-600 dark:text-primary-400 font-medium text-sm hover:underline"
-                    >
-                      Contact us today →
-                    </Link>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           </>

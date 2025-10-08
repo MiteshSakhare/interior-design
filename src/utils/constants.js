@@ -265,6 +265,78 @@ export const THEME_COLORS = {
   }
 };
 
+export const CALCULATOR_DATA = {
+  propertyTypes: {
+    '1BHK': {
+      name: '1 BHK',
+      rooms: ['Kitchen', 'Living Room', 'Bedroom 1', 'Bathroom 1']
+    },
+    '2BHK': {
+      name: '2 BHK',
+      rooms: ['Kitchen', 'Living Room', 'Bedroom 1', 'Bedroom 2', 'Bathroom 1', 'Bathroom 2']
+    },
+    '3BHK': {
+      name: '3 BHK',
+      rooms: ['Kitchen', 'Living Room', 'Bedroom 1', 'Bedroom 2', 'Bedroom 3', 'Bathroom 1', 'Bathroom 2']
+    },
+    '4BHK': {
+      name: '4 BHK / Villa',
+      rooms: ['Kitchen', 'Living Room', 'Bedroom 1', 'Bedroom 2', 'Bedroom 3', 'Bedroom 4', 'Bathroom 1', 'Bathroom 2', 'Bathroom 3']
+    }
+  },
+  packages: {
+    Essentials: {
+      name: 'Essentials',
+      description: 'Functional and durable materials for a clean, modern look.',
+      multiplier: 1.0,
+      image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=80',
+      perks: [
+        'Standard Quality Materials',
+        'Basic False Ceiling',
+        'Essential Lighting Fixtures',
+        '2 Year Warranty'
+      ]
+    },
+    Premium: {
+      name: 'Premium',
+      description: 'High-quality materials and finishes for a stylish, elegant space.',
+      multiplier: 1.5,
+      image: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=600&q=80',
+      perks: [
+        'High-Quality Materials',
+        'Designer False Ceiling',
+        'Advanced Lighting Fixtures',
+        'Branded Fittings',
+        '5 Year Warranty'
+      ]
+    },
+    Luxe: {
+      name: 'Luxe',
+      description: 'Top-of-the-line materials and bespoke finishes for ultimate luxury.',
+      multiplier: 2.2,
+      image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=600&q=80',
+      perks: [
+        'Luxury & Imported Materials',
+        'Bespoke False Ceiling Designs',
+        'Smart Lighting & Automation',
+        'Premium Branded Fittings',
+        '10 Year Warranty'
+      ]
+    }
+  },
+  basePrices: {
+    Kitchen: 80000,
+    'Living Room': 60000,
+    'Bedroom 1': 50000,
+    'Bedroom 2': 45000,
+    'Bedroom 3': 45000,
+    'Bedroom 4': 45000,
+    'Bathroom 1': 35000,
+    'Bathroom 2': 30000,
+    'Bathroom 3': 30000
+  }
+};
+
 export default {
   APP_CONFIG,
   COMPANY_CONTACT_INFO,
@@ -275,5 +347,6 @@ export default {
   SOCIAL_LINKS,
   ANIMATION_VARIANTS,
   VALIDATION_RULES,
-  THEME_COLORS
+  THEME_COLORS,
+  CALCULATOR_DATA
 };

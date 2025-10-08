@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'; // 1. Make sure useEffect is imported
 import { Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './Navbar';
@@ -9,8 +9,10 @@ import ChatBot from '../ui/ChatBot';
 const Layout = () => {
   const location = useLocation();
 
+  // --- 2. ADD THIS USEEFFECT HOOK ---
+  // This hook will run every time the page URL (location.pathname) changes.
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   const pageVariants = {
